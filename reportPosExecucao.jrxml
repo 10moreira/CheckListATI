@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportPosExecucao" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b2101735-fdf3-48cd-97ef-728218670c8a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
+			<style backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select * from posExec;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="avaliado" class="java.lang.String"/>
+	<field name="execevento" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="79" backcolor="#0000FF" uuid="ea52e92b-e16e-4aab-86aa-951e4c8b5e62"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="79" forecolor="#FFFFFF" uuid="86316878-70a1-4d3b-895d-caa6cebc1f5d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pós execução]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="35" uuid="734a3260-4d38-4510-b6fc-b176018c6735"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="33" backcolor="#0000FF" uuid="0109b388-8a91-49ed-8ec0-53a88a5d141a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="43" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="0655da8f-4e4e-463b-a7a7-704e57194dd3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="5b54e5b3-a9de-4a94-9636-d36b556bc631"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avaliado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<rectangle>
+				<reportElement style="Zebra" x="0" y="0" width="572" height="44" uuid="1b7a94b5-58b0-4895-b1d7-d4dfaf3f5025"/>
+			</rectangle>
+			<textField>
+				<reportElement x="43" y="13" width="100" height="20" uuid="c67e725e-d56d-474e-8cd8-3eb10eaa9008"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="173" y="13" width="379" height="20" uuid="e0ef7195-3370-489e-9bb5-69f97ef0a62a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{avaliado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

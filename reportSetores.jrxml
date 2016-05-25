@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportSetores" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8bab7c2-1534-4234-8b76-7369bb725385">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0) ]]></conditionExpression>
+			<style backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select * from setor;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="campus" class="java.lang.String"/>
+	<field name="centro" class="java.lang.String"/>
+	<field name="datsetor" class="java.sql.Timestamp"/>
+	<field name="envolvido" class="java.lang.String"/>
+	<field name="horario" class="java.sql.Timestamp"/>
+	<field name="localsetor" class="java.lang.String"/>
+	<field name="parceiroexterno" class="java.lang.String"/>
+	<field name="titulo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="79" backcolor="#0000FF" uuid="64aa9933-84c9-405b-8b38-bbd623e55888"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="79" forecolor="#FFFFFF" uuid="0d71130f-3c41-4c4f-83cd-7d15c3310e41"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Setores]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="35" uuid="9d68511b-931f-414b-adea-bffb26ec6434"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="61" backcolor="#0000FF" uuid="7661df27-f0b9-4d60-99d7-95b9db61b680"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="23" y="20" width="100" height="20" forecolor="#FFFFFF" uuid="7bc06e57-00b8-4ddb-928d-ecbbc51c2a6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="20" width="100" height="20" forecolor="#FFFFFF" uuid="384f2280-32f9-4015-9606-6c666fb1a092"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Campus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="20" width="100" height="20" forecolor="#FFFFFF" uuid="587a4ce1-ba64-4fb3-aec2-c291a8503567"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Envolvido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="20" width="100" height="20" forecolor="#FFFFFF" uuid="24892490-ee7b-4c6f-90e8-a88765ca1a06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Centro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="634" y="20" width="100" height="20" forecolor="#FFFFFF" uuid="feb58a62-04aa-42a7-917a-b55bebfe0c43"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Local Setor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<rectangle>
+				<reportElement style="Zebra" x="0" y="0" width="802" height="34" uuid="83512614-ffd9-48ac-a622-4e85f402b119"/>
+			</rectangle>
+			<textField>
+				<reportElement x="23" y="0" width="111" height="20" uuid="d88de6a2-9562-41e8-94ca-68211848c275"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="0" width="100" height="20" uuid="5991a808-6d32-4d54-abc3-d521e6ea1da9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{campus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="0" width="100" height="20" uuid="8ad3ad84-3812-4a19-9c5b-73399e218bf2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{envolvido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="100" height="20" uuid="e5d496d8-0659-41c6-9d58-61f48a5f185b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{centro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="634" y="0" width="100" height="20" uuid="6955078e-1cea-4c23-a9e7-071d0f8eeecb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{localsetor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

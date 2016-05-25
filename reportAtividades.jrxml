@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportAtividades" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f38a16fe-5291-4dd2-9a19-dfa8d3c8eb50">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
+			<style backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select * from Atividade;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="especificaatividade" class="java.lang.String"/>
+	<field name="tipoatividade" class="java.lang.String"/>
+	<field name="nomesetor" class="java.lang.Integer"/>
+	<field name="processodivul" class="java.lang.Integer"/>
+	<field name="projeto" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="79" backcolor="#0000FF" uuid="4a3d8982-a259-4b5b-8473-7651761e408b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="79" forecolor="#FFFFFF" uuid="d1e1c59d-5f1f-4b77-8d7f-750b2e483401"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atividades]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="43" uuid="ba9124ce-5ad4-465a-83ec-e5f54e347179"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="572" height="42" backcolor="#0000FF" uuid="f531e13a-56ba-4381-b9c6-530f4ab92fcf"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="20" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="6637d4d2-8bd4-4c53-a532-2cfb4173c1ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="2" width="130" height="20" forecolor="#FFFFFF" uuid="78a75d5e-5714-4a5c-a9f2-2c28b17ed819"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especifica Atividade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="409" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="02e5176a-17ab-46bc-8d7c-21853f463932"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Atividade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<rectangle>
+				<reportElement style="Zebra" x="0" y="0" width="572" height="37" uuid="aea0ca18-3816-4a52-b21b-5326b990121c"/>
+			</rectangle>
+			<textField>
+				<reportElement x="20" y="0" width="100" height="20" uuid="7d11da7e-6ce0-465f-9e78-3bd2479608d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="0" width="130" height="20" uuid="58c58aed-625d-44a6-b21b-82035d91cfac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{especificaatividade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="0" width="100" height="20" uuid="22262658-b0a4-4fdf-a7f6-bb035774afd9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipoatividade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

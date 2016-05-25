@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportProcessoDeDivulgacao" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="57e8d7dc-1cd4-41a5-8f58-72d6c259db2d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
+			<style backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select * from processodivul]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="convite" class="java.lang.String"/>
+	<field name="tipodivulg" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#0000FF" uuid="e8de1811-71e9-426f-bb42-4be6a5b95198"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" forecolor="#FFFFFF" uuid="4a3085c2-8d06-41f3-9ba5-0a1b0d944487"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Processos De Divulgação]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="35" uuid="1fc152eb-4b76-4cc8-ad70-a31ebfe9e034"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="39" backcolor="#0000FF" uuid="90294acb-04a2-418b-88d4-f41794734c76"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="6d912ea0-cd84-4c83-9674-d23ae66aa236"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="e0c61101-81e1-4a53-99e5-a390e60ef709"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Convite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="87694ba6-4432-4109-bcc7-407c10e09c0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Divulgação]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<rectangle>
+				<reportElement style="Zebra" x="0" y="0" width="555" height="32" uuid="54274bf6-66ce-4eaf-b543-6abc6d7be6ba"/>
+			</rectangle>
+			<textField>
+				<reportElement x="30" y="1" width="100" height="20" uuid="e343c807-a60d-4a5d-ad57-b66a6bca8d3d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="1" width="100" height="20" uuid="47e4b717-135a-4bc2-a8a3-6bcbf29a649f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{convite}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="1" width="100" height="20" uuid="970cf160-b1e4-47d9-9dda-6cb302cd3092"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipodivulg}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

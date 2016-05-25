@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportOrganizacaoPrevia" language="groovy" pageWidth="900" pageHeight="842" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="938ec242-fb1d-4c78-a7a5-7464a061014b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
+			<style backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select * from organizaPrev;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="alunosespc" class="java.lang.String"/>
+	<field name="discurso" class="java.lang.String"/>
+	<field name="envolvidos" class="java.lang.String"/>
+	<field name="extruturaex" class="java.lang.String"/>
+	<field name="necessidade" class="java.lang.String"/>
+	<field name="atividade" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="860" height="79" backcolor="#0000FF" uuid="99a01537-fedc-4e52-9384-ac9a62a2f237"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="860" height="79" forecolor="#FFFFFF" uuid="e30dc749-0a8c-4635-9140-1f64ef834aa4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Organização Previa]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="860" height="35" uuid="feaed834-fe77-424e-b2de-e3ffe700efc9"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="49" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="860" height="49" backcolor="#0000FF" uuid="c661f78e-7def-45b1-8fd3-7a577c0c5810"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="16" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="34672ebe-18bf-4646-b51c-37a20532084c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="13f6ce4b-c86b-43f0-aa12-be63d78164e2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alunos Especiais]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="d3d4a859-a5a4-4f49-a7a0-51d0325cfe78"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discurso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="ede2671d-51cb-40a3-8e50-57bf50c7c4b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Envolvidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="526" y="2" width="123" height="20" forecolor="#FFFFFF" uuid="396568fe-2ca4-4d82-ae28-f1234d21b45e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Extrutura Externa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="673" y="2" width="187" height="20" forecolor="#FFFFFF" uuid="b1d4013b-a07a-4c84-afe7-052cbe3f76c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Necessidades]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<rectangle>
+				<reportElement style="Zebra" x="0" y="0" width="860" height="50" uuid="dc45e44c-d3aa-47aa-9f06-9b33acd60f7d"/>
+			</rectangle>
+			<textField>
+				<reportElement x="16" y="16" width="100" height="20" uuid="5e80434a-4024-42bb-8220-cf6dea7978eb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="19" width="100" height="20" uuid="e8f59a11-f270-4868-a979-a74b7b28eaa1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{alunosespc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="16" width="100" height="20" uuid="5e1b69c7-8be2-47d9-baa1-a87d1095456e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{discurso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="16" width="100" height="20" uuid="5a3a6c98-5177-4c03-ab31-5c793d394563"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{envolvidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="528" y="16" width="123" height="20" uuid="4bfaa9d3-9e39-402a-a6f8-4e185260f5ac"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{extruturaex}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="673" y="16" width="187" height="20" uuid="2b527cdd-a7ca-4df3-9134-2478483e8adb"/>
+				<textFieldExpression><![CDATA[$F{necessidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportProjetos" language="groovy" pageWidth="900" pageHeight="842" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa66a708-4357-448d-934d-029154d289db">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
+			<style backcolor="#C0C0C0"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select * from Projeto]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="tipoproj" class="java.lang.String"/>
+	<field name="setor" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="860" height="79" backcolor="#0000FF" uuid="8aebf59d-9f49-4e61-bc7f-ce60fa0d2e03"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="860" height="79" forecolor="#FFFFFF" uuid="1df541f8-65be-4a37-b765-19b87eb0e5ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Projetos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="860" height="35" uuid="dca50762-8094-4607-8290-b0abce769399"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="860" height="41" backcolor="#0000FF" uuid="8c504957-dcc4-4a32-9eb4-1b2a1433bfe6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="120" y="0" width="740" height="20" forecolor="#FFFFFF" uuid="bea5a2f4-88ef-4bf8-b7ff-c7d59586a18a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Projeto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="b144b70e-f099-46d6-9b6b-b1c4cfedcacc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<rectangle>
+				<reportElement style="Zebra" x="0" y="0" width="860" height="50" uuid="92e186d8-14dc-4fd9-91bf-6460bd247598"/>
+			</rectangle>
+			<textField>
+				<reportElement x="120" y="17" width="740" height="20" uuid="e5cd5d65-2df6-4e09-b4a0-a5e18cea8965"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipoproj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="17" width="100" height="20" uuid="801fa836-607c-4c06-a461-15e1ef35ed26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
